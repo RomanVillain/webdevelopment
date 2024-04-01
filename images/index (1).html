@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Якудза</title>
+    <style>
+        body {
+            background-color: #ffffff;
+            color: #000000;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden; 
+        }
+
+        header {
+            width: 100%; 
+            overflow: hidden; 
+        }
+
+        .header-image img {
+            width: 100%; 
+            display: block;
+        }
+
+        nav {
+            text-align: center;
+            margin-top: 20px;
+            background-color: #8b0000; 
+        }
+
+        nav a {
+            color: #ffffff;
+            text-decoration: none;
+            margin: 0 10px;
+            font-size: 1.2em;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .content {
+            margin-top: 20px;
+            text-align: justify;
+        }
+
+        footer {
+            position: fixed; /* розміщує футер внизу сторінки, з фіксованою позицією */
+            bottom: 0; /* розміщує футер в самому низу сторінки */
+            left: 0;
+            width: 100%; /* займає всю ширину екрану */
+            text-align: center;
+        }
+
+        footer img {
+            width: 100%; /* займає всю ширину екрану */
+        }
+
+        .scroll-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #8b0000;
+            color: #ffffff;
+            padding: 10px 20px;
+            border-radius: 50%;
+            display: none;
+            cursor: pointer;
+        }
+
+        @media (max-width: 600px) {
+            nav a {
+                font-size: 1em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-image">
+            <img src="header.jpg" alt="Header">
+        </div>
+        <nav>
+            <a href="#">Основні події</a>
+            <a href="#">Лідери</a>
+            <a href="#">Культура</a>
+            <a href="#">Кримінальні практики</a>
+        </nav>
+    </header>
+    
+    <div class="container">
+        <div class="content">
+            <h2>Історія</h2>
+            <p>Історія якудзи.</p>
+
+            <h2>Лідери</h2>
+            <p>Інформація про лідерів якудзи.</p>
+
+            <h2>Культура</h2>
+            <p>Інформація про культуру якудзи.</p>
+
+            <h2>Кримінальні практики</h2>
+            <p>Інформація про кримінальні практики якудзи.</p>
+
+            <h2>Пов’язані статті</h2>
+            <ul>
+                <li><a href="#">Стаття 1</a></li>
+                <li><a href="#">Стаття 2</a></li>
+                <li><a href="#">Стаття 3</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="scroll-to-top" onclick="scrollToTop()">↑</div>
+
+    <script>
+        window.onscroll = function() {scrollFunction()};
+
+        function scrollFunction() {
+            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                document.querySelector('.scroll-to-top').style.display = "block";
+            } else {
+                document.querySelector('.scroll-to-top').style.display = "none";
+            }
+
+            var footer = document.querySelector('footer');
+            var scrollHeight = document.documentElement.scrollHeight;
+            var clientHeight = document.documentElement.clientHeight;
+            var scrollTop = document.documentElement.scrollTop;
+
+            if (scrollHeight - clientHeight - scrollTop < 10) {
+                footer.style.bottom = "0";
+            } else {
+                footer.style.bottom = "-100px";
+            }
+        }
+
+        function scrollToTop() {
+            document.body.scrollTop = 0;
+            document.documentElement.scrollTop = 0;
+        }
+    </script>
+
+    <footer>
+        <img src="footer.gif" alt="Footer">
+    </footer>
+    
+</body>
+</html>
