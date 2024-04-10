@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Якудза</title>
+    <title>Sammary</title>
     <style>
         body {
             background-color: #ffffff;
@@ -12,11 +12,14 @@
             margin: 0;
             padding: 0;
             overflow-x: hidden; 
+            transition: background-color 0.5s ease; /* Додали плавний перехід для фонового кольору */
         }
 
         header {
             width: 100%; 
             overflow: hidden; 
+            align-items: center; /* Вирівнюємо елементи по вертикалі по центру */
+            justify-content: space-between; /* Розміщує елементи на рівній відстані один від одного */
         }
 
         .header-image img {
@@ -24,10 +27,35 @@
             display: block;
         }
 
-        nav {
-            text-align: center;
-            margin-top: 20px;
-            background-color: #8b0000; 
+        .header-object {
+            width: 22%; /* Змініть ширину об'єкта за вашим власним розрахунком */
+            margin-left: auto; /* Переміщуємо об'єкт праворуч */
+            margin-left: 90px; 
+        }
+        
+        .header-image {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative; /* Додаємо позицію relative для коректного позиціонування тексту */
+        }
+        
+        .header-text {
+            position: absolute;
+            bottom: 70px; /* Розташовуємо текст внизу */
+            color: whitesmoke; /* Змінено на чорний колір */
+            font-size: 20px;
+            text-align: center; /* Вирівнюємо текст по центру */
+            width: 100%; /* Забезпечуємо, щоб текст був на всю ширину зображення */
+        }
+
+        .header-text br {
+            display: block; /* Показуємо тег <br> */
+        }
+
+        .header-object img {
+            width: 100%; 
+            display: block;
         }
 
         nav a {
@@ -46,6 +74,7 @@
             margin: 0 auto;
             padding: 20px;
             box-sizing: border-box;
+            float: right;
         }
 
         .content {
@@ -54,15 +83,14 @@
         }
 
         footer {
-            position: fixed; /* розміщує футер внизу сторінки, з фіксованою позицією */
-            bottom: 0; /* розміщує футер в самому низу сторінки */
+            bottom: 0;
             left: 0;
-            width: 100%; /* займає всю ширину екрану */
+            width: 100%;
             text-align: center;
         }
 
         footer img {
-            width: 100%; /* займає всю ширину екрану */
+            width: 100%;
         }
 
         .scroll-to-top {
@@ -88,13 +116,11 @@
     <header>
         <div class="header-image">
             <img src="header.jpg" alt="Header">
+            <div class="header-text">Звідки береться міфічна сила самураїв?<br>Це питання, яке залишається актуальним протягом століть.<br>Самураї - це не просто воїни, вони - втілення величі, відданості та майстерності.<br>Їхній шлях - це не лише шлях воїна, але й шлях духовного вдосконалення.<br>Самураї здатні бачити красу в найбільш звичайних речах - в квітці сакури, що падає на землю, в легкому вітрі, що лоскоче листя.<br>Їхня філософія полягає в тому, щоб бути зосередженим на поточному моменті, бути в гармонії з навколишнім середовищем, і це робить їх неперевершеними у бою.<br>Самураї - це не лише майстри воєнного мистецтва, але й символи честі, відваги та поваги.<br>Вони завжди готові пожертвувати собою за свою родину, свого господаря і свою країну.<br>Їхня відданість та самовідданість створюють легенду, яка залишається живою і дотепер.</div>
         </div>
-        <nav>
-            <a href="#">Основні події</a>
-            <a href="#">Лідери</a>
-            <a href="#">Культура</a>
-            <a href="#">Кримінальні практики</a>
-        </nav>
+        <div class="header-object">
+            <img src="herLegs.gif" alt="Legs Image">
+        </div>
     </header>
     
     <div class="container">
@@ -122,14 +148,35 @@
 
     <div class="scroll-to-top" onclick="scrollToTop()">↑</div>
 
+    <footer>
+        <img src="footer.gif" alt="Footer">
+    </footer>
+
     <script>
+        window.addEventListener('DOMContentLoaded', function() {
+            var headerText = document.querySelector('.header-text');
+            var words = headerText.textContent.split(' '); // Розділяємо текст на слова
+            var wordGroups = [];
+            var groupSize = 5; // Розмір групи (5 слів в кожній групі)
+
+            // Розділяємо слова на групи по groupSize
+            while (words.length > 0) {
+                wordGroups.push(words.splice(0, groupSize).join(' '));
+            }
+
+            // Замінюємо вміст заголовка
+            headerText.innerHTML = wordGroups.join('<br>'); // Вставляємо тег <br> між групами слів
+        });
+
         window.onscroll = function() {scrollFunction()};
 
         function scrollFunction() {
             if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
                 document.querySelector('.scroll-to-top').style.display = "block";
+                document.body.style.backgroundColor = "#d3d3d3"; // Змінюємо колір фону
             } else {
                 document.querySelector('.scroll-to-top').style.display = "none";
+                document.body.style.backgroundColor = "#ffffff"; // Змінюємо колір фону назад
             }
 
             var footer = document.querySelector('footer');
@@ -149,10 +196,5 @@
             document.documentElement.scrollTop = 0;
         }
     </script>
-
-    <footer>
-        <img src="footer.gif" alt="Footer">
-    </footer>
-    
 </body>
 </html>
