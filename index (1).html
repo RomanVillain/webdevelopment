@@ -12,14 +12,16 @@
             margin: 0;
             padding: 0;
             overflow-x: hidden; 
-            transition: background-color 0.5s ease; /* Додали плавний перехід для фонового кольору */
+            position: relative; 
         }
 
         header {
             width: 100%; 
             overflow: hidden; 
-            align-items: center; /* Вирівнюємо елементи по вертикалі по центру */
-            justify-content: space-between; /* Розміщує елементи на рівній відстані один від одного */
+            align-items: center; 
+            justify-content: space-between; 
+            position: relative; 
+            z-index: 1; 
         }
 
         .header-image img {
@@ -28,29 +30,32 @@
         }
 
         .header-object {
-            width: 22%; /* Змініть ширину об'єкта за вашим власним розрахунком */
-            margin-left: auto; /* Переміщуємо об'єкт праворуч */
+            width: 22%; 
+            margin-left: auto; 
             margin-left: 90px; 
-        }
-        
-        .header-image {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            position: relative; /* Додаємо позицію relative для коректного позиціонування тексту */
-        }
-        
-        .header-text {
-            position: absolute;
-            bottom: 70px; /* Розташовуємо текст внизу */
-            color: whitesmoke; /* Змінено на чорний колір */
-            font-size: 20px;
-            text-align: center; /* Вирівнюємо текст по центру */
-            width: 100%; /* Забезпечуємо, щоб текст був на всю ширину зображення */
+            position: relative; 
         }
 
-        .header-text br {
-            display: block; /* Показуємо тег <br> */
+        .header-text-widget {
+            position: absolute;
+            top: 50%;
+            right: 10%;
+            color: white;
+            font-size: 22px;
+            text-align: left;
+            width: 40%;
+            z-index: 2;
+            padding: 20px;
+            border-radius: 20px; /* Закруглені кути */
+            background-color: rgb(0, 0, 0); /* Прозорий фон */
+        
+        }
+        
+
+        .header-text-widget h1 {
+            color: #FF0000; 
+            font-size: 22px;
+            text-align: center;
         }
 
         .header-object img {
@@ -58,23 +63,32 @@
             display: block;
         }
 
+        .nav-container { 
+            text-align: center; 
+        }
+
         nav a {
             color: #ffffff;
             text-decoration: none;
             margin: 0 10px;
             font-size: 1.2em;
+            padding: 8px 16px; 
+            border-radius: 5px; 
+            background-color: #8b0000; 
+            transition: background-color 0.3s, color 0.3s; 
         }
 
         nav a:hover {
             text-decoration: underline;
+            background-color: #b30000; 
+            color: #ffffff; 
         }
 
         .container {
             max-width: 1200px;
-            margin: 0 auto;
+            margin: 0 auto; 
             padding: 20px;
             box-sizing: border-box;
-            float: right;
         }
 
         .content {
@@ -116,35 +130,39 @@
     <header>
         <div class="header-image">
             <img src="header.jpg" alt="Header">
-            <div class="header-text">Звідки береться міфічна сила самураїв?<br>Це питання, яке залишається актуальним протягом століть.<br>Самураї - це не просто воїни, вони - втілення величі, відданості та майстерності.<br>Їхній шлях - це не лише шлях воїна, але й шлях духовного вдосконалення.<br>Самураї здатні бачити красу в найбільш звичайних речах - в квітці сакури, що падає на землю, в легкому вітрі, що лоскоче листя.<br>Їхня філософія полягає в тому, щоб бути зосередженим на поточному моменті, бути в гармонії з навколишнім середовищем, і це робить їх неперевершеними у бою.<br>Самураї - це не лише майстри воєнного мистецтва, але й символи честі, відваги та поваги.<br>Вони завжди готові пожертвувати собою за свою родину, свого господаря і свою країну.<br>Їхня відданість та самовідданість створюють легенду, яка залишається живою і дотепер.</div>
         </div>
         <div class="header-object">
             <img src="herLegs.gif" alt="Legs Image">
+        </div>
+        <div class="header-text-widget">
+            <h1 style="color: #FF0000; font-size: 22px;">Міфічна сила самураїв</h1>
+            Звідки береться міфічна сила самураїв?<br> Це питання, яке залишається актуальним протягом століть.<br> Самураї - це не просто воїни, вони - втілення величі, відданості та майстерності.<br> Їхній шлях - це не лише шлях воїна, але й шлях духовного вдосконалення.<br> Самураї здатні бачити красу в найбільш звичайних речах - в квітці сакури, що падає на землю, в легкому вітрі, що лоскоче листя.<br> Їхня філософія полягає в тому, щоб бути зосередженим на поточному моменті, бути в гармонії з навколишнім середовищем, і це робить їх неперевершеними у бою.<br> Самураї - це не лише майстри воєнного мистецтва, але й символи честі, відваги та поваги.<br> Вони завжди готові пожертвувати собою за свою родину, свого господаря і свою країну.<br> Їхня відданість та самовідданість створюють легенду, яка залишається живою і дотепер.
         </div>
     </header>
     
     <div class="container">
         <div class="content">
             <h2>Історія</h2>
-            <p>Історія якудзи.</p>
-
+            <p>Історія якудзи є дуже багатошаровою та цікавою. Вона починається ще в середньовіччі, коли якудза була суспільно визнаною групою воїнів, які боролися за інтереси своїх господарів. Протягом століть, злочинна діяльність якудза еволюціонувала та набула значного впливу на японське суспільство.</p>
+    
             <h2>Лідери</h2>
-            <p>Інформація про лідерів якудзи.</p>
-
+            <p>Лідери якудзи - це фігури, які відіграють ключову роль у керуванні та організації цієї злочинної структури. Вони мають величезний авторитет серед своїх підлеглих та впливають на багато аспектів японського життя, включаючи політику, бізнес та культуру.</p>
+    
             <h2>Культура</h2>
-            <p>Інформація про культуру якудзи.</p>
-
+            <p>Культура якудзи є унікальною та надзвичайно складною. Вона включає в себе традиції, обряди, символи та норми поведінки, які визначають життя членів цієї злочинної організації. Через свою велику впливовість, культура якудзи часто вражає інші сфери японського суспільства.</p>
+    
             <h2>Кримінальні практики</h2>
-            <p>Інформація про кримінальні практики якудзи.</p>
-
+            <p>Кримінальні практики якудзи включають у себе широкий спектр злочинних дій, від місцевих до міжнародних. Це вбивства, викрадення, розбій, здійснення впливу на політичні рішення, наркоторгівля та інші нелегальні активності. Якудза відома своєю жорстокістю та безжальністю у вирішенні своїх справ.</p>
+    
             <h2>Пов’язані статті</h2>
             <ul>
-                <li><a href="#">Стаття 1</a></li>
-                <li><a href="#">Стаття 2</a></li>
-                <li><a href="#">Стаття 3</a></li>
+                <li><a href="https://uk.wikipedia.org/wiki/%D0%AF%D0%BA%D1%83%D0%B4%D0%B7%D0%B0">Стаття 1</a> - Детальний огляд історії та структури якудзи.</li>
+                <li><a href="https://www.readcube.com/articles/10.31516%2F2410-5325.062.11">Стаття 2</a> - Аналіз впливу якудза на японське суспільство.</li>
+                <li><a href="https://japanjunky.com/do-the-yakuza-still-exist-in-japan/">Стаття 3</a> - Розгляд сучасного стану та перспектив розвитку якудзи в сучасному світі.</li>
             </ul>
         </div>
     </div>
+    
 
     <div class="scroll-to-top" onclick="scrollToTop()">↑</div>
 
@@ -154,42 +172,20 @@
 
     <script>
         window.addEventListener('DOMContentLoaded', function() {
-            var headerText = document.querySelector('.header-text');
-            var words = headerText.textContent.split(' '); // Розділяємо текст на слова
+            var headerText = document.querySelector('.header-text-widget');
+            var words = headerText.textContent.split(' ');
             var wordGroups = [];
-            var groupSize = 5; // Розмір групи (5 слів в кожній групі)
+            var groupSize = 5; 
 
-            // Розділяємо слова на групи по groupSize
             while (words.length > 0) {
                 wordGroups.push(words.splice(0, groupSize).join(' '));
             }
 
-            // Замінюємо вміст заголовка
-            headerText.innerHTML = wordGroups.join('<br>'); // Вставляємо тег <br> між групами слів
+            headerText.innerHTML = wordGroups.join('<br>'); 
         });
 
         window.onscroll = function() {scrollFunction()};
 
-        function scrollFunction() {
-            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-                document.querySelector('.scroll-to-top').style.display = "block";
-                document.body.style.backgroundColor = "#d3d3d3"; // Змінюємо колір фону
-            } else {
-                document.querySelector('.scroll-to-top').style.display = "none";
-                document.body.style.backgroundColor = "#ffffff"; // Змінюємо колір фону назад
-            }
-
-            var footer = document.querySelector('footer');
-            var scrollHeight = document.documentElement.scrollHeight;
-            var clientHeight = document.documentElement.clientHeight;
-            var scrollTop = document.documentElement.scrollTop;
-
-            if (scrollHeight - clientHeight - scrollTop < 10) {
-                footer.style.bottom = "0";
-            } else {
-                footer.style.bottom = "-100px";
-            }
-        }
 
         function scrollToTop() {
             document.body.scrollTop = 0;
