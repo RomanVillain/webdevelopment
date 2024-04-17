@@ -41,20 +41,20 @@
             top: 50%;
             right: 10%;
             color: white;
-            font-size: 22px;
+            font-size: 25px;
             text-align: left;
             width: 40%;
             z-index: 2;
             padding: 20px;
-            border-radius: 20px; /* Закруглені кути */
-            background-color: rgb(0, 0, 0); /* Прозорий фон */
+            border-radius: 20px; 
+            background-color: rgb(0, 0, 0); 
         
         }
         
 
         .header-text-widget h1 {
             color: #FF0000; 
-            font-size: 22px;
+            font-size: 44px;
             text-align: center;
         }
 
@@ -170,27 +170,6 @@
         <img src="footer.gif" alt="Footer">
     </footer>
 
-    <script>
-        window.addEventListener('DOMContentLoaded', function() {
-            var headerText = document.querySelector('.header-text-widget');
-            var words = headerText.textContent.split(' ');
-            var wordGroups = [];
-            var groupSize = 5; 
 
-            while (words.length > 0) {
-                wordGroups.push(words.splice(0, groupSize).join(' '));
-            }
-
-            headerText.innerHTML = wordGroups.join('<br>'); 
-        });
-
-        window.onscroll = function() {scrollFunction()};
-
-
-        function scrollToTop() {
-            document.body.scrollTop = 0;
-            document.documentElement.scrollTop = 0;
-        }
-    </script>
 </body>
 </html>
